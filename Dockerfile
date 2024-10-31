@@ -22,6 +22,9 @@ WORKDIR /app
 # Copy the application JAR file into the container
 COPY target/Calculator-1.0-SNAPSHOT.jar app.jar
 
+EXPOSE 80
+
+
 # Start Xvfb and then run the application with the DISPLAY variable set
 CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768 & java -Djava.awt.headless=true -jar app.jar"]
 
