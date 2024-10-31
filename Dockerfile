@@ -15,10 +15,14 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && apt-get install -y xvfb
+
 WORKDIR /app
 
 # Copy the application JAR file into the container
 COPY target/Calculator-1.0-SNAPSHOT.jar app.jar
 
 # Start Xvfb and then run the application with the DISPLAY variable set
-ENTRYPOINT ["sh", "-c", "Xvfb :99 -screen 0 1024x768x16 & DISPLAY=:99 java -Djava.awt.headless=false -jar app.jar"]
+CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768 & java -jar app.jar"]
+
+
