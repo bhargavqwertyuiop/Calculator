@@ -5,10 +5,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the Spring Boot application JAR file into the container
-COPY target/app.jar /app/app.jar
+COPY target/Calculator-1.0-SNAPSHOT.jar /app/app.jar
 
 # Expose the port that the app will run on
-EXPOSE 8080
+EXPOSE 8085
 
 # Run the application
 CMD ["java", "-jar", "/app/app.jar"]
