@@ -23,6 +23,6 @@ WORKDIR /app
 COPY target/Calculator-1.0-SNAPSHOT.jar app.jar
 
 # Start Xvfb and then run the application with the DISPLAY variable set
-CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768 & java -jar app.jar"]
+CMD ["sh", "-c", "Xvfb :99 -screen 0 1024x768 & java -Djava.awt.headless=true -jar app.jar"]
 
 
